@@ -16,4 +16,4 @@ take 2 damage for 4 turns
 ### Immune
 immune to damage for the next turn (not immune to status effects)
 ### Crit
-double damage (unless opponent is immune)
++2 damage (unless opponent is immune)

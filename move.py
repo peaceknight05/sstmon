@@ -41,7 +41,7 @@ class Move:
             if(ran < 2):
                 effect.Effect.effectDo("crit")
                 if(not(effect.Effect.getTrainerImmune())):
-                    ai.Ai.trainerHealth(ai.Ai.getTrainerHealth() - 5)
+                    ai.Ai.trainerHealth(ai.Ai.getTrainerHealth() - 2)
                 else:
                     print("The opponent's pokemon is immune!")
                     effect.Effect.trainerImmuneOff()
@@ -79,7 +79,7 @@ class Move:
             if(ran < 12):
                 effect.Effect.effectDo("crit")
                 if(not(effect.Effect.getPlayerImmune())):
-                    player.Player.playerHealth(player.Player.getPlayerHealth() - 6)
+                    player.Player.playerHealth(player.Player.getPlayerHealth() - 2)
                 else:
                     print("Your pokemon is immune!")
                     effect.Effect.playerImmuneOff()
