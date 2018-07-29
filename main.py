@@ -11,7 +11,6 @@ e = effect.Effect
 #main code
 p.playerHealth(100)
 a.trainerHealth(100)
-e.turn("player")
 e.nullify()
 while((p.getPlayerHealth() > 0) & (a.getTrainerHealth() > 0)):
     e.turn("player")

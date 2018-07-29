@@ -48,7 +48,7 @@ class Move:
         elif(move == moveTypes.MoveTypes.NATURES_FURY):
             print("Player used Nature's Fury")
             if(not(effect.Effect.getTrainerImmune())):
-                player.Player.trainerHealth(ai.Ai.getTrainerHealth() - 8)
+                ai.Ai.trainerHealth(ai.Ai.getTrainerHealth() - 8)
             else:
                 print("The opponent's pokemon is immune!")
                 effect.Effect.trainerImmuneOff()
