@@ -3,7 +3,6 @@ import effect
 import random
 import player
 import ai
-ran = 0
 
 class Move:
     #make move

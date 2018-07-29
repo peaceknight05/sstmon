@@ -1,6 +1,5 @@
 import ai
 import player
-turnNumber = 0
 turn = "player"
 poisonTurnsPlayer = 0
 poisonTurnsTrainer = 0
@@ -15,10 +14,6 @@ trainerImmune = False
 
 class Effect:
     #getters
-    def getTurnNumber():
-        global turnNumber
-        return turnNumber
-
     def getPlayerImmune():
         global playerImmune
         return playerImmune
@@ -28,10 +23,6 @@ class Effect:
         return trainerImmune
 
     #setters
-    def turnNumber(setTo):
-        global turnNumber
-        turnNumber = setTo
-
     def turn(setTo):
         global turn
         turn = setTo
@@ -47,6 +38,15 @@ class Effect:
 
     #do effect
     def effectDo(effectName):
+        global turn
+        global isPlayerPoisoned
+        global isPlayerSuperpoisoned
+        global poisonTurnsPlayer
+        global superpoisonTurnsPlayer
+        global isTrainerPoisoned
+        global isTrainerSuperpoisoned
+        global trainerImmune
+        global playerImmune
         if(effectName == "poison"):
             if(turn == "trainer"):
                 isPlayerPoisoned = True
@@ -120,6 +120,16 @@ class Effect:
 
     #nullify all effects
     def nullify():
+        global poisonTurnsPlayer
+        global poisonTurnsTrainer
+        global superpoisonTurnsPlayer
+        global superpoisonTurnsTrainer
+        global isTrainerPoisoned
+        global isTrainerSuperpoisoned
+        global isPlayerPoisoned
+        global isPlayerSuperpoisoned
+        global playerImmune
+        global trainerImmune
         poisonTurnsPlayer = 0
         poisonTurnsTrainer = 0
         superpoisonTurnsPlayer = 0
