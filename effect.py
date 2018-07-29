@@ -43,27 +43,29 @@ class Effect:
         global isPlayerSuperpoisoned
         global poisonTurnsPlayer
         global superpoisonTurnsPlayer
+        global poisonTurnsTrainer
+        global superpoisonTurnsTrainer
         global isTrainerPoisoned
         global isTrainerSuperpoisoned
         global trainerImmune
         global playerImmune
         if(effectName == "poison"):
-            if(turn == "trainer"):
+            if((turn == "trainer") & (not isPlayerPoisoned)):
                 isPlayerPoisoned = True
                 poisonTurnsPlayer = 2
                 print("Your pokémon is poisoned")
-            elif(turn == "player"):
+            elif((turn == "player") & (not isTrainerPoisoned)):
                 isTrainerPoisoned = True
                 poisonTurnsTrainer = 2
                 print("The opponent's pokémon is poisoned")
             else:
                 print("The pokémon is already poisoned")
         elif(effectName == "superpoison"):
-            if(turn == "trainer"):
+            if((turn == "trainer") & (not isPlayerSuperpoisoned)):
                 isPlayerSuperpoisoned = True
                 superpoisonTurnsPlayer = 4
                 print("Your pokémon is super-poisoned")
-            elif(turn == "player"):
+            elif((turn == "player") & (not isTrainerSuperpoisoned)):
                 isTrainerSuperpoisoned = True
                 superpoisonTurnsTrainer = 4
                 print("The opponent's pokémon is super-poisoned")
@@ -89,18 +91,6 @@ class Effect:
         global isTrainerPoisoned
         global superpoisonTurnsTrainer
         global isTrainerSuperpoisoned     
-        if((poisonTurnsPlayer == 0) & isPlayerPoisoned):
-            isPlayerPoisoned = False
-            print("Your pokemon is no longer poisoned")
-        if((poisonTurnsTrainer == 0) & isTrainerPoisoned):
-            isTrainerPoisoned = False
-            print("The opponent's pokemon is no longer poisoned")
-        if((superpoisonTurnsPlayer == 0) & isPlayerSuperpoisoned):
-            isPlayerSuperpoisoned = False
-            print("Your pokemon is no longer super-poisoned")
-        if((superpoisonTurnsTrainer == 0) & isTrainerSuperpoisoned):
-            isTrainerSuperpoisoned = False
-            print("The opponent's pokemon is no longer super-poisoned")
         if(isTrainerPoisoned):
             print("The opponent's poisoned pokemon is damaged")
             ai.Ai.trainerHealth(ai.Ai.getTrainerHealth() - 2)
@@ -117,6 +107,19 @@ class Effect:
             print("Your super-poisoned pokemon is damaged")
             player.Player.playerHealth(player.Player.getPlayerHealth() - 2)
             superpoisonTurnsPlayer -= 1
+
+        if((poisonTurnsPlayer == 0) & isPlayerPoisoned):
+            isPlayerPoisoned = False
+            print("Your pokemon is no longer poisoned")
+        if((poisonTurnsTrainer == 0) & isTrainerPoisoned):
+            isTrainerPoisoned = False
+            print("The opponent's pokemon is no longer poisoned")
+        if((superpoisonTurnsPlayer == 0) & isPlayerSuperpoisoned):
+            isPlayerSuperpoisoned = False
+            print("Your pokemon is no longer super-poisoned")
+        if((superpoisonTurnsTrainer == 0) & isTrainerSuperpoisoned):
+            isTrainerSuperpoisoned = False
+            print("The opponent's pokemon is no longer super-poisoned")
 
     #nullify all effects
     def nullify():
