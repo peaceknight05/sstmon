@@ -41,7 +41,7 @@ class Move:
             if(ran < 2):
                 effect.Effect.effectDo("crit")
                 if(not(effect.Effect.getTrainerImmune())):
-                    ai.Ai.trainerHealth(ai.Ai.getTrainerHealth() - 5)
+                    ai.Ai.trainerHealth(ai.Ai.getTrainerHealth() - 2)
                 else:
                     print("The opponent's pokemon is immune!")
                     effect.Effect.trainerImmuneOff()
@@ -59,49 +59,49 @@ class Move:
         elif(move == moveTypes.MoveTypes.CRIMSON_CHARGE):
             print("Trainer used Crimson Charge")
             if(not(effect.Effect.getPlayerImmune())):
-                player.Player.playerHealth(player.Player.getPlayerHealth() - 8)
-            else:
-                print("Your pokemon is immune!")
-                effect.Effect.playerImmuneOff()
-            #chance
-            ran = random.randint(0,10)
-            if(ran == 0):
-                effect.Effect.effectDo("immune")
-        elif(move == moveTypes.MoveTypes.TACKLE):
-            print("Trainer used Tackle")
-            if(not(effect.Effect.getPlayerImmune())):
-                player.Player.playerHealth(player.Player.getPlayerHealth() - 6)
+                player.Player.playerHealth(player.Player.getPlayerHealth() - 7)
             else:
                 print("Your pokemon is immune!")
                 effect.Effect.playerImmuneOff()
             #chance
             ran = random.randint(0,100)
-            if(ran < 12):
+            if(ran < 14):
+                effect.Effect.effectDo("poison")
+        elif(move == moveTypes.MoveTypes.TACKLE):
+            print("Trainer used Tackle")
+            if(not(effect.Effect.getPlayerImmune())):
+                player.Player.playerHealth(player.Player.getPlayerHealth() - 7)
+            else:
+                print("Your pokemon is immune!")
+                effect.Effect.playerImmuneOff()
+            #chance
+            ran = random.randint(0,100)
+            if(ran < 24):
                 effect.Effect.effectDo("crit")
                 if(not(effect.Effect.getPlayerImmune())):
-                    player.Player.playerHealth(player.Player.getPlayerHealth() - 6)
+                    player.Player.playerHealth(player.Player.getPlayerHealth() - 2)
                 else:
                     print("Your pokemon is immune!")
                     effect.Effect.playerImmuneOff()
         elif(move == moveTypes.MoveTypes.UNNERVING_GROWL):
             print("Trainer used Unnerving Growl")
             if(not(effect.Effect.getPlayerImmune())):
-                player.Player.playerHealth(player.Player.getPlayerHealth() - 3)
+                player.Player.playerHealth(player.Player.getPlayerHealth() - 4)
             else:
                 print("Your pokemon is immune!")
                 effect.Effect.playerImmuneOff()
             #chance
             ran = random.randint(0,100)
-            if(ran < 38):
-                effect.Effect.effectDo("superpoison")
+            if(ran < 21):
+                effect.Effect.effectDo("immune")
         else:
             print("Trainer used Dart Bullet")
             if(not(effect.Effect.getPlayerImmune())):
-                player.Player.playerHealth(player.Player.getPlayerHealth() - 5)
+                player.Player.playerHealth(player.Player.getPlayerHealth() - 4)
             else:
                 print("Your pokemon is immune!")
                 effect.Effect.playerImmuneOff()
             #chance
             ran = random.randint(0,4)
             if(ran == 0):
-                effect.Effect.effectDo("poison")
+                effect.Effect.effectDo("superpoison")

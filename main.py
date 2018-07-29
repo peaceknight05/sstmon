@@ -2,6 +2,10 @@ import ai
 import moveTypes
 import player
 import effect
+import random
+score = 0
+playerHealthReset = 100
+trainerHealthReset = 100
 
 #shorthands
 p = player.Player
@@ -9,14 +13,31 @@ a = ai.Ai
 e = effect.Effect
 
 #main code
-p.playerHealth(100)
-a.trainerHealth(100)
-e.nullify()
-while((p.getPlayerHealth() > 0) & (a.getTrainerHealth() > 0)):
-    e.turn("player")
-    p.makeMove()
-    e.turn("trainer")
-    a.makeMove()
-    e.updateEffect()
-    print("Your health: " + str(p.getPlayerHealth()))
-    print("Opponent's health: " + str(a.getTrainerHealth()))
+while(p.getPlayerHealth() > 0):
+    p.playerHealth(playerHealthReset)
+    a.trainerHealth(trainerHealthReset)
+    e.nullify()
+    while((p.getPlayerHealth() > 0) & (a.getTrainerHealth() > 0)):
+        e.turn("player")
+        p.makeMove()
+        if(a.getTrainerHealth() <= 0):
+            break
+        e.turn("trainer")
+        a.makeMove()
+        if(p.getPlayerHealth() <= 0):
+            break
+        e.updateEffect()
+        if((p.getPlayerHealth() <= 0) | (a.getTrainerHealth() <= 0)):
+            break
+        print("Your health: " + str(p.getPlayerHealth()))
+        print("Opponent's health: " + str(a.getTrainerHealth()))
+    if(p.getPlayerHealth() <= 0):
+        break
+    else:
+        print("You won! The next trainer is approaching. What will you do?")
+        score += 1
+        trainerHealthReset += random.randint(10,20)
+        playerHealthReset += random.randint(10,20)
+
+print("You lost! Your score is:")
+print(str(score))
