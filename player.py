@@ -19,4 +19,10 @@ class Player:
             if(moveT == moveTypes.MoveTypes.CRIMSON_CHARGE):
                 break
             print(str(moveT.value) + ": " + moveT.name)
-        move.Move.makeMove(moveTypes.MoveTypes(int(input("Make a move (number)\n"))))
+        while(True):
+            try:
+                move.Move.makeMove(moveTypes.MoveTypes(int(input("Make a move (number)\n"))))
+            except:
+                print("The input is not valid. Try again.")
+                continue
+            break
