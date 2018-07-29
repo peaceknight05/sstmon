@@ -4,7 +4,6 @@ import player
 import effect
 import random
 score = 0
-playerHealthReset = 100
 trainerHealthReset = 100
 
 #shorthands
@@ -14,7 +13,7 @@ e = effect.Effect
 
 #main code
 while(p.getPlayerHealth() > 0):
-    p.playerHealth(playerHealthReset)
+    p.playerHealth(100)
     a.trainerHealth(trainerHealthReset)
     e.nullify()
     while((p.getPlayerHealth() > 0) & (a.getTrainerHealth() > 0)):
@@ -36,8 +35,7 @@ while(p.getPlayerHealth() > 0):
     else:
         print("You won! The next trainer is approaching. What will you do?")
         score += 1
-        trainerHealthReset += random.randint(10,20)
-        playerHealthReset += random.randint(10,20)
+        trainerHealthReset += random.randint(5,10)
 
 print("You lost! Your score is:")
 print(str(score))
