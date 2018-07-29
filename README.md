@@ -17,3 +17,6 @@ take 2 damage for 4 turns
 immune to damage for the next turn (not immune to status effects)
 ### Crit
 +2 damage (unless opponent is immune)
+
+## Progressing
+After every win, the enemy becomes stronger. The total number of enemies defeated is then displayed after a battle is conceded.
