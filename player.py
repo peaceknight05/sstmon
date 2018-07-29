@@ -5,10 +5,12 @@ playerHealth = 100
 class Player:
     #setter
     def playerHealth(setTo):
+        global playerHealth
         playerHealth = setTo
 
     #getter
     def getPlayerHealth():
+        global playerHealth
         return playerHealth
 
     #makes move

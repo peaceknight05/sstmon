@@ -1,7 +1,6 @@
 import move
 import moveTypes
 import random
-ran = 0
 trainerHealth = 100
 
 class Ai:
@@ -17,6 +16,7 @@ class Ai:
     
     #choose move
     def makeMove():
+        global trainerHealth
         if(trainerHealth > 49):
             #attack mode
             ran = random.randint(0,2)

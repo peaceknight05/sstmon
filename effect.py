@@ -1,6 +1,5 @@
 import ai
 import player
-turnNumber = 0
 turn = "player"
 poisonTurnsPlayer = 0
 poisonTurnsTrainer = 0
@@ -14,45 +13,40 @@ playerImmune = False
 trainerImmune = False
 
 class Effect:
-    turnNumber = 0
-    turn = "player"
-    poisonTurnsPlayer = 0
-    poisonTurnsTrainer = 0
-    superpoisonTurnsPlayer = 0
-    superpoisonTurnsTrainer = 0
-    isTrainerPoisoned = False
-    isTrainerSuperpoisoned = False
-    isPlayerPoisoned = False
-    isPlayerSuperpoisoned = False
-    playerImmune = False
-    trainerImmune = False
-
     #getters
-    def getTurnNumber():
-        return turnNumber
-
     def getPlayerImmune():
+        global playerImmune
         return playerImmune
 
     def getTrainerImmune():
+        global trainerImmune
         return trainerImmune
 
     #setters
-    def turnNumber(setTo):
-        turnNumber = setTo
-
     def turn(setTo):
+        global turn
         turn = setTo
 
     #off-ers
     def playerImmuneOff():
+        global playerImmune
         playerImmune = False
 
     def trainerImmuneOff():
+        global trainerImmune
         trainerImmune = False
 
     #do effect
     def effectDo(effectName):
+        global turn
+        global isPlayerPoisoned
+        global isPlayerSuperpoisoned
+        global poisonTurnsPlayer
+        global superpoisonTurnsPlayer
+        global isTrainerPoisoned
+        global isTrainerSuperpoisoned
+        global trainerImmune
+        global playerImmune
         if(effectName == "poison"):
             if(turn == "trainer"):
                 isPlayerPoisoned = True
@@ -86,7 +80,15 @@ class Effect:
         
 
     #update effect
-    def updateEffect():        
+    def updateEffect():
+        global poisonTurnsPlayer
+        global isPlayerPoisoned
+        global superpoisonTurnsPlayer
+        global isPlayerSuperpoisoned
+        global poisonTurnsTrainer
+        global isTrainerPoisoned
+        global superpoisonTurnsTrainer
+        global isTrainerSuperpoisoned     
         if((poisonTurnsPlayer == 0) & isPlayerPoisoned):
             isPlayerPoisoned = False
             print("Your pokemon is no longer poisoned")
@@ -118,6 +120,16 @@ class Effect:
 
     #nullify all effects
     def nullify():
+        global poisonTurnsPlayer
+        global poisonTurnsTrainer
+        global superpoisonTurnsPlayer
+        global superpoisonTurnsTrainer
+        global isTrainerPoisoned
+        global isTrainerSuperpoisoned
+        global isPlayerPoisoned
+        global isPlayerSuperpoisoned
+        global playerImmune
+        global trainerImmune
         poisonTurnsPlayer = 0
         poisonTurnsTrainer = 0
         superpoisonTurnsPlayer = 0
