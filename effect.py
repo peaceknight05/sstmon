@@ -14,41 +14,35 @@ playerImmune = False
 trainerImmune = False
 
 class Effect:
-    turnNumber = 0
-    turn = "player"
-    poisonTurnsPlayer = 0
-    poisonTurnsTrainer = 0
-    superpoisonTurnsPlayer = 0
-    superpoisonTurnsTrainer = 0
-    isTrainerPoisoned = False
-    isTrainerSuperpoisoned = False
-    isPlayerPoisoned = False
-    isPlayerSuperpoisoned = False
-    playerImmune = False
-    trainerImmune = False
-
     #getters
     def getTurnNumber():
+        global turnNumber
         return turnNumber
 
     def getPlayerImmune():
+        global playerImmune
         return playerImmune
 
     def getTrainerImmune():
+        global trainerImmune
         return trainerImmune
 
     #setters
     def turnNumber(setTo):
+        global turnNumber
         turnNumber = setTo
 
     def turn(setTo):
+        global turn
         turn = setTo
 
     #off-ers
     def playerImmuneOff():
+        global playerImmune
         playerImmune = False
 
     def trainerImmuneOff():
+        global trainerImmune
         trainerImmune = False
 
     #do effect
@@ -86,7 +80,15 @@ class Effect:
         
 
     #update effect
-    def updateEffect():        
+    def updateEffect():
+        global poisonTurnsPlayer
+        global isPlayerPoisoned
+        global superpoisonTurnsPlayer
+        global isPlayerSuperpoisoned
+        global poisonTurnsTrainer
+        global isTrainerPoisoned
+        global superpoisonTurnsTrainer
+        global isTrainerSuperpoisoned     
         if((poisonTurnsPlayer == 0) & isPlayerPoisoned):
             isPlayerPoisoned = False
             print("Your pokemon is no longer poisoned")
