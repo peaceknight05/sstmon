@@ -15,7 +15,7 @@ e = effect.Effect
 print("Made By FOA Inc.")
 print("Welcome to the world of SSTmon! I'm Professor Oak.")
 nPlayer = str(input("What is your name?"))
-print("All right" str(nop) + ", Let's start your SSTmon adventure!")
+print("All right " + str(nop) + ", Let's start your SSTmon adventure!")
 print("A trainer is approaching! What will you do?")
 
 #main code
